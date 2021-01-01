@@ -1,0 +1,19 @@
+{
+  "scripts": {
+    "start": "snowpack dev",
+    "build": "snowpack build",
+    "format": "prettier --write \"src/**/*.{js,jsx}\"",
+    "lint": "prettier --check \"src/**/*.{js,jsx}\""
+  },
+  "dependencies": {
+    "framer-motion": "^3.1.1",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
+    "react-router-dom": "^5.2.0"
+  },
+  "devDependencies": {
+    "@snowpack/plugin-react-refresh": "^2.3.9",
+    "prettier": "^2.0.5",
+    "snowpack": "^2.18.4"
+  }
+}
