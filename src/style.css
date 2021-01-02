@@ -25,14 +25,14 @@ body {
   color: var(--text-color);
 }
 
-/* artist page section */
+/* artist page */
 
 .artist-page {
-  max-width: 80%;
-  margin: 0 auto;
+  /* max-width: 80%;
+  margin: 0 auto; */
 }
 
-/* banner section */
+/* artist info */
 
 .artist-banner {
   height: 240px;
@@ -40,7 +40,7 @@ body {
   flex-direction: column;
   justify-content: flex-end;
   position: relative;
-  background: linear-gradient(transparent 50%, var(--bg));
+  background: linear-gradient(transparent, var(--bg));
 }
 
 .artist-cover {
@@ -48,6 +48,7 @@ body {
   height: 100%;
   width: 100%;
   object-fit: cover;
+  object-position: 0 20%;
   z-index: -1;
 }
 
@@ -102,7 +103,7 @@ body {
   border-radius: 50%;
 }
 
-/* album details section */
+/* album details */
 
 .albums {
   margin: var(--spacing-64) var(--spacing-32) 0 var(--spacing-32);
@@ -136,8 +137,13 @@ body {
   margin: 0 var(--spacing-16);
 }
 
-.info-title {
+.album-title {
   font-size: 2.4rem;
+}
+
+.album-link {
+  color: var(--text-color);
+  text-decoration: none;
 }
 
 .album-info .actions {
@@ -147,6 +153,7 @@ body {
 .action-heart {
   width: 34px;
   height: 34px;
+  margin-right: var(--spacing-8);
   font-size: 1rem;
   background-color: hsla(0, 0%, 0%, 0.4);
   color: var(--text-color);
@@ -155,7 +162,7 @@ body {
   cursor: pointer;
 }
 
-/* album tracks section */
+/* album tracks */
 
 .album-tracks {
   margin-top: var(--spacing-32);
@@ -169,6 +176,12 @@ body {
 
 .album-track {
   display: flex;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.album-track:hover {
+  background-color: hsl(0, 0%, 14%);
 }
 
 .album-track > * {
@@ -188,11 +201,22 @@ body {
 }
 
 .title {
-  /* text-align: left; */
   flex-basis: 70%;
 }
 
 .duration {
   flex-basis: 10%;
   text-align: center;
+}
+
+/* animations */
+
+.scale {
+  /* fixes blur during transition */
+  backface-visibility: hidden;
+  transition: scale 0.3s;
+}
+
+.scale:hover {
+  scale: 1.04;
 }
