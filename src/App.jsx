@@ -135,8 +135,8 @@ function AlbumPage() {
               </div>
 
               <div className="summary text-light">
-                <span class="year middledot">{year}</span>
-                <span class="number-of-tracks middledot">
+                <span className="year middledot">{year}</span>
+                <span className="number-of-tracks middledot">
                   {numberOfTracks} songs
                 </span>
                 <span className="length">{length} min</span>
