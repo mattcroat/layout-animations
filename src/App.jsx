@@ -1,14 +1,24 @@
 import React from 'react'
 import { AnimateSharedLayout, AnimatePresence } from 'framer-motion'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
-
+import { Switch, Route, Link } from 'react-router-dom'
 import { artists } from './data'
 
 export function App() {
-  return <ArtistPage artistName="Fleetwood Mac" />
+  return (
+    <>
+      <AnimateSharedLayout>
+        <AnimatePresence>
+          <Switch>
+            <Route exact path="/" component={ArtistPage} />
+            <Route path="/album" component={AlbumPage} />
+          </Switch>
+        </AnimatePresence>
+      </AnimateSharedLayout>
+    </>
+  )
 }
 
-function ArtistPage({ artistName }) {
+function ArtistPage({ artistName = 'Fleetwood Mac' }) {
   const artist = artists.find((artist) => artist.name == artistName)
 
   return (
@@ -58,9 +68,9 @@ function Album({ name, year, cover, tracks }) {
         <div className="album-info">
           <p className="album-year">{year}</p>
           <h2 className="album-title">
-            <a className="album-link" href="#">
+            <Link className="album-link" to="/album">
               {name}
-            </a>
+            </Link>
           </h2>
 
           <div className="actions">
@@ -70,23 +80,79 @@ function Album({ name, year, cover, tracks }) {
         </div>
       </div>
 
-      <div className="album-tracks">
-        <div className="track-labels">
-          <div className="number">#</div>
-          <div className="heart"></div>
-          <div className="title">Title</div>
-          <div className="duration">🕒</div>
+      <AlbumTracks tracks={tracks} />
+    </article>
+  )
+}
+
+function AlbumTracks({ tracks }) {
+  return (
+    <div className="album-tracks">
+      <div className="track-labels">
+        <div className="number">#</div>
+        <div className="heart"></div>
+        <div className="title">Title</div>
+        <div className="duration">🕒</div>
+      </div>
+
+      {tracks.map((track) => (
+        <div key={track.trackNumber} className="album-track">
+          <div className="number">{track.trackNumber}</div>
+          <div className="heart">🤍</div>
+          <div className="title">{track.title}</div>
+          <div className="duration">{track.length}</div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+function AlbumPage() {
+  const cover =
+    'https://upload.wikimedia.org/wikipedia/en/9/97/Fleetwood_Mac_-_Tango_in_the_Night.png'
+  const name = 'Tango in the Night'
+  const year = 1980
+  const tracks = artists[0].albums[0].tracks
+  const artist = 'Fleetwood Mac'
+  const numberOfTracks = tracks.length
+  const length = 46
+
+  return (
+    <main className="album-page">
+      <section className="album">
+        <div className="album-details">
+          <div className="album-cover">
+            <img src={cover} alt={name} />
+          </div>
+
+          <div className="album-info">
+            <p className="album-label">Album</p>
+            <h2 className="album-title">{name}</h2>
+
+            <div className="album-summary">
+              <div className="artist">
+                <span class="text-light">By</span> {artist}
+              </div>
+
+              <div className="summary text-light">
+                <span class="year middledot">{year}</span>
+                <span class="number-of-tracks middledot">
+                  {numberOfTracks} songs
+                </span>
+                <span className="length">{length} min</span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {tracks.map((track) => (
-          <div key={track.trackNumber} className="album-track">
-            <div className="number">{track.trackNumber}</div>
-            <div className="heart">🤍</div>
-            <div className="title">{track.title}</div>
-            <div className="duration">{track.length}</div>
-          </div>
-        ))}
-      </div>
-    </article>
+        <div className="actions">
+          <button className="action-play scale">Play</button>
+          <button className="action-heart scale">🤍</button>
+          <button className="action-more scale">&#8230;</button>
+        </div>
+
+        <AlbumTracks tracks={tracks} />
+      </section>
+    </main>
   )
 }

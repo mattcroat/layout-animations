@@ -10,6 +10,7 @@
   --sans-serif: 'Inter', sans-serif;
   --bg: hsl(200, 10%, 10%);
   --text-color: snow;
+  --text-light: hsl(0, 0%, 60%);
   --brand-color: limegreen;
   --spacing-8: 0.5rem;
   --spacing-16: 1rem;
@@ -219,4 +220,39 @@ body {
 
 .scale:hover {
   scale: 1.04;
+}
+
+/* album page */
+
+.album-page {
+  padding: var(--spacing-32);
+}
+
+.album-label {
+  text-transform: uppercase;
+}
+
+.album-summary {
+  margin-top: auto;
+}
+
+.text-light {
+  color: var(--text-light);
+}
+
+.summary {
+  margin-top: var(--spacing-8);
+}
+
+.middledot::after {
+  content: '\00b7';
+  margin: 0 0.2rem;
+}
+
+.album-page .track-labels {
+  padding-top: 0;
+}
+
+.album-page .action-heart {
+  margin: var(--spacing-8);
 }
