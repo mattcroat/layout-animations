@@ -1,10 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
 
+/* reset */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+/* variables */
 
 :root {
   --sans-serif: 'Inter', sans-serif;
@@ -18,6 +22,8 @@
   --spacing-64: 4rem;
 }
 
+/* global styles */
+
 body {
   margin: 0;
   padding: 0;
@@ -26,11 +32,9 @@ body {
   color: var(--text-color);
 }
 
-/* artist page */
-
-.artist-page {
-  /* max-width: 80%;
-  margin: 0 auto; */
+a {
+  color: var(--text-color);
+  text-decoration: none;
 }
 
 /* artist info */
@@ -140,11 +144,6 @@ body {
 
 .album-title {
   font-size: 2.4rem;
-}
-
-.album-link {
-  color: var(--text-color);
-  text-decoration: none;
 }
 
 .album-info .actions {
