@@ -2,7 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 
-export function Album({ albumName, yearOfRelease, coverArt, tracks }) {
+export function ArtistAlbum({ albumName, yearOfRelease, coverArt, tracks }) {
   return (
     <article className="album">
       <motion.div layoutId="album-details" className="album-details">

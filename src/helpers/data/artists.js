@@ -1,16 +1,14 @@
 export const artists = [
   {
     name: 'Fleetwood Mac',
-    cover:
-      'https://www.rollingstone.com/wp-content/uploads/2018/06/rs-215182-FleetwoodMac_S4_F14-RT.jpg?crop=900:600&width=440',
+    cover: './images/fleetwood-mac.jpg',
     albums: [
       {
         id: 1,
         name: 'Tango in the Night',
         year: '1987',
         length: '44:28',
-        cover:
-          'https://upload.wikimedia.org/wikipedia/en/9/97/Fleetwood_Mac_-_Tango_in_the_Night.png',
+        cover: './images/cover.jpg',
         tracks: [
           {
             trackNumber: 1,

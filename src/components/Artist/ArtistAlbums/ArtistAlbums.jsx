@@ -1,13 +1,13 @@
 import React from 'react'
 
-import { Album } from './Album'
+import { ArtistAlbum } from './ArtistAlbum'
 
-export function Albums({ albums }) {
+export function ArtistAlbums({ albums }) {
   return (
     <section className="albums">
       <h3 className="albums-label">Albums</h3>
       {albums.map((album) => (
-        <Album
+        <ArtistAlbum
           key={album.id}
           albumName={album.name}
           yearOfRelease={album.year}
