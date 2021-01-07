@@ -17,7 +17,7 @@ export function AlbumDetails({
   albumTracks,
 }) {
   return (
-    <AlbumSection>
+    <AlbumContainer>
       <Album>
         <AlbumCover layoutId="artist-album">
           <img src={coverArt} alt={albumName} />
@@ -50,11 +50,11 @@ export function AlbumDetails({
       </Actions>
 
       <AlbumTracks albumTracks={albumTracks} />
-    </AlbumSection>
+    </AlbumContainer>
   )
 }
 
-const AlbumSection = styled(motion.section)`
+const AlbumContainer = styled(motion.main)`
   padding: var(--spacing-32);
 `
 

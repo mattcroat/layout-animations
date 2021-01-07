@@ -10,9 +10,5 @@ export function ArtistPage() {
   const artist = artists.find((artist) => artist.name === artistName)
   if (!artist) return <h2>Could not find artist "{artistName}"</h2>
 
-  return (
-    <main className="artist-page">
-      <Artist artist={artist} />
-    </main>
-  )
+  return <Artist artist={artist} />
 }

@@ -15,9 +15,5 @@ export function AlbumPage() {
     artist && artist.albums.find((album) => album.name === albumName)
   if (!album) return <h2>Could not find album "{albumName}"</h2>
 
-  return (
-    <main className="album-page">
-      <Album artist={artist} album={album} />
-    </main>
-  )
+  return <Album artist={artist} album={album} />
 }
