@@ -1,1 +1,1 @@
-export { ArtistPage } from './ArtistPage.jsx'
+export { ArtistPage } from './ArtistPage'

@@ -1,1 +1,1 @@
-export { ArtistBanner } from './ArtistBanner.jsx'
+export { ArtistBanner } from './ArtistBanner'

@@ -1,1 +1,1 @@
-export { AlbumTracks } from './AlbumTracks.jsx'
+export { AlbumTracks } from './AlbumTracks'

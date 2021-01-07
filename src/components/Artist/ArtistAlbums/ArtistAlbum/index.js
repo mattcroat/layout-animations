@@ -1,1 +1,1 @@
-export { ArtistAlbum } from './ArtistAlbum.jsx'
+export { ArtistAlbum } from './ArtistAlbum'
