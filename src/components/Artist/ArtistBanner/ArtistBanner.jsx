@@ -1,13 +1,14 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import styled from 'styled-components'
 
+import { Button } from '@root/components/styled/Button'
 import { fadeIn } from '@root/helpers/variants'
 
 export function ArtistBanner({ artistName, coverArt }) {
   return (
-    <section className="artist-banner">
-      <motion.img
-        className="artist-cover"
+    <ArtistSection>
+      <ArtistCover
         src={coverArt}
         alt={artistName}
         initial="hidden"
@@ -15,14 +16,47 @@ export function ArtistBanner({ artistName, coverArt }) {
         variants={fadeIn}
       />
 
-      <p className="artist-label">Artist</p>
-      <h1 className="artist-name">{artistName}</h1>
+      <ArtistLabel>Artist</ArtistLabel>
+      <ArtistName>{artistName}</ArtistName>
 
-      <div className="actions">
-        <button className="action-play scale">Play</button>
-        <button className="action-follow scale">Follow</button>
-        <button className="action-more scale">&#8230;</button>
-      </div>
-    </section>
+      <Actions>
+        <Button play>Play</Button>
+        <Button follow>Follow</Button>
+        <Button more>&#8230;</Button>
+      </Actions>
+    </ArtistSection>
   )
 }
+
+const ArtistSection = styled.section`
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  background: linear-gradient(transparent, var(--bg));
+`
+
+const ArtistCover = styled(motion.img)`
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: -1;
+`
+
+const ArtistLabel = styled.p`
+  margin-left: var(--spacing-32);
+  text-transform: uppercase;
+`
+
+const ArtistName = styled.h1`
+  margin-left: var(--spacing-32);
+  font-size: 4rem;
+  font-weight: 900;
+`
+
+const Actions = styled.div`
+  margin-left: var(--spacing-32);
+  margin-top: var(--spacing-16);
+`
