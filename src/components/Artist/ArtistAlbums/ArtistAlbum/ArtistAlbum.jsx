@@ -1,17 +1,20 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
+import { Link, useRouteMatch } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { AlbumTracks } from '@root/components/shared/AlbumTracks'
 import { Button } from '@root/components/styled/Button'
+import { formatCase } from '@root/helpers/utilities'
 
 export function ArtistAlbum({ albumName, yearOfRelease, coverArt, tracks }) {
+  const match = useRouteMatch()
+
   return (
     <AlbumArticle>
       <AlbumDetails>
         <AlbumCover layoutId="artist-album">
-          <Link to="/album">
+          <Link to={`${match.url}/${formatCase(albumName, 'kebab')}`}>
             <img src={coverArt} alt={albumName} />
           </Link>
         </AlbumCover>
@@ -19,7 +22,9 @@ export function ArtistAlbum({ albumName, yearOfRelease, coverArt, tracks }) {
         <AlbumSummary>
           {yearOfRelease}
           <AlbumTitle layoutId="album-title">
-            <Link to="/album">{albumName}</Link>
+            <Link to={`${match.url}/${formatCase(albumName, 'kebab')}`}>
+              {albumName}
+            </Link>
           </AlbumTitle>
 
           <Actions>

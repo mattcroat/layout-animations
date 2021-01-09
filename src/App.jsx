@@ -1,6 +1,6 @@
 import React from 'react'
 import { AnimateSharedLayout } from 'framer-motion'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 
 import { ArtistPage } from '@root/views/ArtistPage'
 import { AboutPage } from '@root/views/AboutPage'
@@ -10,9 +10,14 @@ export function App() {
   return (
     <AnimateSharedLayout>
       <Switch>
-        <Route exact path="/" component={ArtistPage} />
-        <Route path="/about" component={AboutPage} />
-        <Route path="/album" component={AlbumPage} />
+        <Route path="/:artist/about" component={AboutPage} />
+        <Route path="/:artist/:album" component={AlbumPage} />
+        <Route path="/:artist" component={ArtistPage} />
+
+        {/* simulate user already navigated to artist */}
+        <Route path="/">
+          <Redirect to="/fleetwood-mac" />
+        </Route>
       </Switch>
     </AnimateSharedLayout>
   )

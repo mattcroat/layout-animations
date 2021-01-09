@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
+import { Link, useRouteMatch } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { AlbumTracks } from '@root/components/shared/AlbumTracks'
@@ -16,6 +16,8 @@ export function AlbumDetails({
   albumLength,
   albumTracks,
 }) {
+  const match = useRouteMatch()
+
   return (
     <AlbumContainer>
       <Album>
@@ -33,7 +35,7 @@ export function AlbumDetails({
           <AlbumSummary initial="hidden" animate="show" variants={fadeIn}>
             <ArtistName>
               <TextLight>
-                By <Link to="/">{artistName}</Link>
+                By <Link to={`/${match.params.artist}`}>{artistName}</Link>
               </TextLight>
             </ArtistName>
             <TextLight middledot>{yearOfRelease}</TextLight>
