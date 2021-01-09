@@ -16,7 +16,7 @@ const Action = styled.button`
   text-transform: uppercase;
   border: none;
   cursor: pointer;
-  transition: scale 0.3s;
+  transition: scale 0.1s ease-out, border 0.1s;
 
   &:hover {
     scale: 1.04;
@@ -37,6 +37,10 @@ const Follow = styled(Action)`
   padding: var(--spacing-8) var(--spacing-64);
   border: 1px solid hsla(0, 0%, 80%, 0.8);
   border-radius: 20px;
+
+  &:hover {
+    border: 1px solid hsl(0, 0%, 100%);
+  }
 `
 
 const More = styled(Action)`
@@ -45,6 +49,10 @@ const More = styled(Action)`
   background-color: hsla(0, 0%, 0%, 0.4);
   border: 1px solid hsla(0, 0%, 80%, 0.8);
   border-radius: 50%;
+
+  &:hover {
+    border: 1px solid hsl(0, 0%, 100%);
+  }
 `
 
 const Heart = styled(Action)`
@@ -57,4 +65,8 @@ const Heart = styled(Action)`
   border: 1px solid hsla(0, 0%, 80%, 0.8);
   border-radius: 50%;
   cursor: pointer;
+
+  &:hover {
+    border: 1px solid hsl(0, 0%, 100%);
+  }
 `
