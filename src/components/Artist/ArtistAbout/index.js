@@ -1,0 +1,1 @@
+export { ArtistAbout } from './ArtistAbout'
