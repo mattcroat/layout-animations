@@ -3,14 +3,12 @@ import { AnimateSharedLayout } from 'framer-motion'
 import { Switch, Route, Redirect } from 'react-router-dom'
 
 import { ArtistPage } from '@root/views/ArtistPage'
-import { AboutPage } from '@root/views/AboutPage'
 import { AlbumPage } from '@root/views/AlbumPage'
 
 export function App() {
   return (
-    <AnimateSharedLayout>
+    <AnimateSharedLayout type="crossfade">
       <Switch>
-        <Route path="/:artist/about" component={AboutPage} />
         <Route path="/:artist/:album" component={AlbumPage} />
         <Route path="/:artist" component={ArtistPage} />
 

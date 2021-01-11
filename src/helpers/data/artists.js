@@ -1,12 +1,11 @@
 export const artists = [
   {
+    id: 'fleetwood-mac',
     name: 'Fleetwood Mac',
     cover: '/images/fleetwood-mac.jpg',
-    bio:
-      "Fleetwood Mac are a British-American rock band, formed in London in 1967. The band has sold more than 100 million records worldwide, making them one of the world's best-selling bands. In 1998, select members of Fleetwood Mac were inducted into the Rock and Roll Hall of Fame, and received the Brit Award for Outstanding Contribution to Music.",
     albums: [
       {
-        id: 1,
+        id: 'tango-in-the-night',
         name: 'Tango in the Night',
         year: '1987',
         length: '44:28',
