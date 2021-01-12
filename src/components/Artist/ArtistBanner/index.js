@@ -1,1 +1,0 @@
-export { ArtistBanner } from './ArtistBanner'

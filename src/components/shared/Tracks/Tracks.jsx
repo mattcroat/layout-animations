@@ -4,9 +4,9 @@ import styled from 'styled-components'
 
 import { fadeIn } from '@root/helpers/variants'
 
-export function AlbumTracks({ albumTracks }) {
+export function Tracks({ albumTracks }) {
   return (
-    <Tracks
+    <AlbumTracks
       layoutId="album-tracks"
       initial="hidden"
       animate="show"
@@ -27,11 +27,11 @@ export function AlbumTracks({ albumTracks }) {
           <Duration>{track.length}</Duration>
         </AlbumTrack>
       ))}
-    </Tracks>
+    </AlbumTracks>
   )
 }
 
-const Tracks = styled(motion.div)`
+const AlbumTracks = styled(motion.div)`
   /* kept for semantics */
 `
 

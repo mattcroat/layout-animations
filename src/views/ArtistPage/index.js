@@ -1,1 +1,0 @@
-export { ArtistPage } from './ArtistPage'

@@ -5,10 +5,10 @@ import styled from 'styled-components'
 import { Button } from '@root/components/styled/Button'
 import { fadeIn } from '@root/helpers/variants'
 
-export function ArtistBanner({ artistName, coverArt }) {
+export function Header({ artistName, coverArt }) {
   return (
-    <ArtistSection>
-      <ArtistCover
+    <Section>
+      <Cover
         src={coverArt}
         alt={artistName}
         initial="hidden"
@@ -16,19 +16,19 @@ export function ArtistBanner({ artistName, coverArt }) {
         variants={fadeIn}
       />
 
-      <ArtistLabel>Artist</ArtistLabel>
-      <ArtistName>{artistName}</ArtistName>
+      <Label>Artist</Label>
+      <Name>{artistName}</Name>
 
       <Actions>
         <Button play>Play</Button>
         <Button follow>Follow</Button>
         <Button more>&#8230;</Button>
       </Actions>
-    </ArtistSection>
+    </Section>
   )
 }
 
-const ArtistSection = styled.section`
+const Section = styled.section`
   height: 240px;
   display: flex;
   flex-direction: column;
@@ -37,7 +37,7 @@ const ArtistSection = styled.section`
   background: linear-gradient(transparent, var(--bg));
 `
 
-const ArtistCover = styled(motion.img)`
+const Cover = styled(motion.img)`
   position: absolute;
   height: 100%;
   width: 100%;
@@ -45,12 +45,12 @@ const ArtistCover = styled(motion.img)`
   z-index: -1;
 `
 
-const ArtistLabel = styled.p`
+const Label = styled.p`
   margin-left: var(--spacing-32);
   text-transform: uppercase;
 `
 
-const ArtistName = styled.h1`
+const Name = styled.h1`
   margin-left: var(--spacing-32);
   font-size: 4rem;
   font-weight: 900;

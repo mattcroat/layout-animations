@@ -1,14 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { ArtistAlbum } from './ArtistAlbum'
+import { Album } from './Album'
 
-export function ArtistAlbums({ albums }) {
+export function Albums({ albums }) {
   return (
-    <AlbumsSection>
-      <AlbumsLabel>Albums</AlbumsLabel>
+    <Section>
+      <Label>Albums</Label>
       {albums.map((album) => (
-        <ArtistAlbum
+        <Album
           key={album.id}
           albumName={album.name}
           yearOfRelease={album.year}
@@ -16,15 +16,15 @@ export function ArtistAlbums({ albums }) {
           tracks={album.tracks}
         />
       ))}
-    </AlbumsSection>
+    </Section>
   )
 }
 
-const AlbumsSection = styled.section`
+const Section = styled.section`
   margin: var(--spacing-64) var(--spacing-32) 0 var(--spacing-32);
 `
 
-const AlbumsLabel = styled.h3`
+const Label = styled.h3`
   &::after {
     content: '';
     height: 1px;

@@ -3,11 +3,11 @@ import { motion } from 'framer-motion'
 import { Link, useRouteMatch } from 'react-router-dom'
 import styled from 'styled-components'
 
-import { AlbumTracks } from '@root/components/shared/AlbumTracks'
 import { Button } from '@root/components/styled/Button'
+import { Tracks } from '@root/components/shared/Tracks'
 import { fadeIn } from '@root/helpers/variants'
 
-export function AlbumDetails({
+export function Information({
   artistName,
   coverArt,
   albumName,
@@ -16,32 +16,34 @@ export function AlbumDetails({
   albumLength,
   albumTracks,
 }) {
-  const match = useRouteMatch()
+  const {
+    params: { artist },
+  } = useRouteMatch()
 
   return (
-    <AlbumContainer>
+    <Main>
       <Album>
-        <AlbumCover layoutId="artist-album">
+        <Cover layoutId="artist-album">
           <img src={coverArt} alt={albumName} />
-        </AlbumCover>
+        </Cover>
 
         <AlbumInformation>
-          <AlbumLabel initial="hidden" animate="show" variants={fadeIn}>
+          <Label initial="hidden" animate="show" variants={fadeIn}>
             Album
-          </AlbumLabel>
+          </Label>
 
-          <AlbumTitle layoutId="album-title">{albumName}</AlbumTitle>
+          <Title layoutId="album-title">{albumName}</Title>
 
-          <AlbumSummary initial="hidden" animate="show" variants={fadeIn}>
+          <Summary initial="hidden" animate="show" variants={fadeIn}>
             <ArtistName>
               <TextLight>
-                By <Link to={`/${match.params.artist}`}>{artistName}</Link>
+                By <Link to={`/${artist}`}>{artistName}</Link>
               </TextLight>
             </ArtistName>
             <TextLight middledot>{yearOfRelease}</TextLight>
             <TextLight middledot>{numberOfTracks} songs</TextLight>
             <TextLight>{albumLength} min</TextLight>
-          </AlbumSummary>
+          </Summary>
         </AlbumInformation>
       </Album>
 
@@ -51,12 +53,13 @@ export function AlbumDetails({
         <Button more>&#8230;</Button>
       </Actions>
 
-      <AlbumTracks albumTracks={albumTracks} />
-    </AlbumContainer>
+      <Tracks albumTracks={albumTracks} />
+    </Main>
   )
 }
 
-const AlbumContainer = styled(motion.main)`
+const Main = styled(motion.main)`
+  position: relative;
   padding: var(--spacing-32);
 `
 
@@ -64,7 +67,7 @@ const Album = styled(motion.div)`
   display: flex;
 `
 
-const AlbumCover = styled(motion.div)`
+const Cover = styled(motion.div)`
   height: 200px;
 
   img {
@@ -80,15 +83,15 @@ const AlbumInformation = styled.div`
   margin: 0 var(--spacing-16);
 `
 
-const AlbumLabel = styled(motion.span)`
+const Label = styled(motion.span)`
   text-transform: uppercase;
 `
 
-const AlbumTitle = styled(motion.h2)`
+const Title = styled(motion.h2)`
   font-size: 2.4rem;
 `
 
-const AlbumSummary = styled(motion.div)`
+const Summary = styled(motion.div)`
   margin-top: auto;
 `
 

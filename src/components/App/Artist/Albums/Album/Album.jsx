@@ -3,52 +3,52 @@ import { motion } from 'framer-motion'
 import { Link, useRouteMatch } from 'react-router-dom'
 import styled from 'styled-components'
 
-import { AlbumTracks } from '@root/components/shared/AlbumTracks'
 import { Button } from '@root/components/styled/Button'
+import { Tracks } from '@root/components/shared/Tracks'
 import { formatCase } from '@root/helpers/utilities'
 
-export function ArtistAlbum({ albumName, yearOfRelease, coverArt, tracks }) {
-  const match = useRouteMatch()
+export function Album({ albumName, yearOfRelease, coverArt, tracks }) {
+  const { url } = useRouteMatch()
 
   return (
-    <AlbumArticle>
-      <AlbumDetails>
-        <AlbumCover layoutId="artist-album">
-          <Link to={`${match.url}/${formatCase(albumName, 'kebab')}`}>
+    <Article>
+      <Details>
+        <Cover layoutId="artist-album">
+          <Link to={`${url}/${formatCase(albumName, 'kebab')}`}>
             <img src={coverArt} alt={albumName} />
           </Link>
-        </AlbumCover>
+        </Cover>
 
-        <AlbumSummary>
+        <Summary>
           {yearOfRelease}
-          <AlbumTitle layoutId="album-title">
-            <Link to={`${match.url}/${formatCase(albumName, 'kebab')}`}>
+          <Title layoutId="album-title">
+            <Link to={`${url}/${formatCase(albumName, 'kebab')}`}>
               {albumName}
             </Link>
-          </AlbumTitle>
+          </Title>
 
           <Actions>
             <Button heart>🤍</Button>
             <Button more>&#8230;</Button>
           </Actions>
-        </AlbumSummary>
-      </AlbumDetails>
+        </Summary>
+      </Details>
 
-      <AlbumTracks albumTracks={tracks} />
-    </AlbumArticle>
+      <Tracks albumTracks={tracks} />
+    </Article>
   )
 }
 
-const AlbumArticle = styled.article`
+const Article = styled.article`
   margin-bottom: var(--spacing-32);
 `
 
-const AlbumDetails = styled(motion.div)`
+const Details = styled(motion.div)`
   display: flex;
   margin: var(--spacing-16) 0;
 `
 
-const AlbumCover = styled(motion.div)`
+const Cover = styled(motion.div)`
   height: 200px;
 
   img {
@@ -62,12 +62,12 @@ const Actions = styled.div`
   margin-top: auto;
 `
 
-const AlbumSummary = styled.div`
+const Summary = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 var(--spacing-16);
 `
 
-const AlbumTitle = styled(motion.h2)`
+const Title = styled(motion.h2)`
   font-size: 2.4rem;
 `

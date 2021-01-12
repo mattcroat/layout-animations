@@ -2,15 +2,15 @@ import React from 'react'
 import { AnimateSharedLayout } from 'framer-motion'
 import { Switch, Route, Redirect } from 'react-router-dom'
 
-import { ArtistPage } from '@root/views/ArtistPage'
-import { AlbumPage } from '@root/views/AlbumPage'
+import { Artist } from './Artist'
+import { Album } from './Album'
 
 export function App() {
   return (
-    <AnimateSharedLayout type="crossfade">
+    <AnimateSharedLayout>
       <Switch>
-        <Route path="/:artist/:album" component={AlbumPage} />
-        <Route path="/:artist" component={ArtistPage} />
+        <Route path="/:artist/:album" component={Album} />
+        <Route path="/:artist" component={Artist} />
 
         {/* simulate user already navigated to artist */}
         <Route path="/">
