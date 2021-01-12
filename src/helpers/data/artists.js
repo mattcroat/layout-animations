@@ -10,6 +10,9 @@ export const artists = [
         year: '1987',
         length: '44:28',
         cover: '/images/cover.jpg',
+        summary:
+          "Tango in the Night is the fourteenth studio album by British-American rock band Fleetwood Mac. Released on 13 April 1987, it is the fifth and to date last studio album from the band's most successful line-up of Lindsey Buckingham, Mick Fleetwood, Christine McVie, John McVie and Stevie Nicks, as Buckingham left the band later that year.",
+
         tracks: [
           {
             trackNumber: 1,
