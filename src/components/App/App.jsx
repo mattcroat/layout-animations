@@ -7,7 +7,7 @@ import { Album } from './Album'
 
 export function App() {
   return (
-    <AnimateSharedLayout>
+    <AnimateSharedLayout type="crossfade">
       <Switch>
         <Route path="/:artist/:album" component={Album} />
         <Route path="/:artist" component={Artist} />

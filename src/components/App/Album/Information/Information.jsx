@@ -15,6 +15,7 @@ export function Information({
   numberOfTracks,
   albumLength,
   albumTracks,
+  displaySummary,
 }) {
   const {
     params: { artist },
@@ -32,7 +33,7 @@ export function Information({
             Album
           </Label>
 
-          <Title layoutId="album-title">{albumName}</Title>
+          <Title>{albumName}</Title>
 
           <Summary initial="hidden" animate="show" variants={fadeIn}>
             <ArtistName>
@@ -50,7 +51,9 @@ export function Information({
       <Actions initial="hidden" animate="show" variants={fadeIn}>
         <Button play>Play</Button>
         <Button heart>🤍</Button>
-        <Button more>&#8230;</Button>
+        <Button onClick={displaySummary} more>
+          &#8230;
+        </Button>
       </Actions>
 
       <Tracks albumTracks={albumTracks} />
@@ -61,6 +64,7 @@ export function Information({
 const Main = styled(motion.main)`
   position: relative;
   padding: var(--spacing-32);
+  overflow: hidden;
 `
 
 const Album = styled(motion.div)`

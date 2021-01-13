@@ -13,16 +13,16 @@ export function Artist() {
 
   const artist = artists.find((artist) => artist.id === artistId)
 
+  if (!artist) {
+    return <Error>Could not find artist.</Error>
+  }
+
   return (
     <main>
-      {artist ? (
-        <>
-          <Header artistName={artist.name} coverArt={artist.cover} />
-          <Albums albums={artist.albums} />
-        </>
-      ) : (
-        <Error>Could not find artist.</Error>
-      )}
+      <>
+        <Header artistName={artist.name} coverArt={artist.cover} />
+        <Albums albums={artist.albums} />
+      </>
     </main>
   )
 }
