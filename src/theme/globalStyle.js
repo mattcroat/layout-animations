@@ -29,4 +29,14 @@ export const GlobalStyle = createGlobalStyle`
     color: var(--text-color);
     text-decoration: none;
   }
+
+  @keyframes pulse-ring {
+    0% {
+      transform: scale(0.2);
+    }
+    80%,
+    100% {
+      opacity: 0;
+    }
+  }
 `

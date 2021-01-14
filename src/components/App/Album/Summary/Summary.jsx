@@ -8,17 +8,13 @@ import { Button } from '@root/components/styled/Button'
 export function Summary({ coverArt, albumName, albumSummary, displaySummary }) {
   return (
     <Main>
-      <Cover
-        layoutId="artist-album"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-      >
+      <Cover layoutId="artist-album">
         <img src={coverArt} alt={albumName} />
       </Cover>
       <Bio initial="hidden" animate="show" variants={fadeIn}>
         <Title>{albumName}</Title>
         <Text>{albumSummary}</Text>
-        <Button onClick={displaySummary} play>
+        <Button onClick={displaySummary} play pulse>
           Close
         </Button>
       </Bio>

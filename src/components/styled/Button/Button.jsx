@@ -44,6 +44,7 @@ const Follow = styled(Action)`
 `
 
 const More = styled(Action)`
+  position: relative;
   width: 34px;
   height: 34px;
   background-color: hsla(0, 0%, 0%, 0.4);
@@ -53,6 +54,26 @@ const More = styled(Action)`
   &:hover {
     border: 1px solid hsl(0, 0%, 100%);
   }
+
+  ${({ pulse }) => {
+    if (pulse) {
+      return `
+        &::after {
+        content: '';
+        height: 80px;
+        width: 80px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        background: linear-gradient(var(--brand-color), transparent);
+        transform-origin: top left;
+        transform: translateX(-50%) translateY(-50%);
+        animation: pulse-ring 1.25s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        border-radius: 50%;
+      }
+    `
+    }
+  }}
 `
 
 const Heart = styled(Action)`

@@ -51,7 +51,7 @@ export function Information({
       <Actions initial="hidden" animate="show" variants={fadeIn}>
         <Button play>Play</Button>
         <Button heart>🤍</Button>
-        <Button onClick={displaySummary} more>
+        <Button onClick={displaySummary} more pulse>
           &#8230;
         </Button>
       </Actions>

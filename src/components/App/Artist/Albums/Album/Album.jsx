@@ -5,26 +5,23 @@ import styled from 'styled-components'
 
 import { Button } from '@root/components/styled/Button'
 import { Tracks } from '@root/components/shared/Tracks'
-import { formatCase } from '@root/helpers/utilities'
 
-export function Album({ albumName, yearOfRelease, coverArt, tracks }) {
+export function Album({ albumId, albumName, yearOfRelease, coverArt, tracks }) {
   const { url } = useRouteMatch()
 
   return (
     <Article>
       <Details>
-        <Cover layoutId="artist-album">
-          <Link to={`${url}/${formatCase(albumName, 'kebab')}`}>
+        <Link to={`${url}/${albumId}`}>
+          <Cover layoutId="artist-album">
             <img src={coverArt} alt={albumName} />
-          </Link>
-        </Cover>
+          </Cover>
+        </Link>
 
         <Summary>
           {yearOfRelease}
           <Title layoutId="album-title">
-            <Link to={`${url}/${formatCase(albumName, 'kebab')}`}>
-              {albumName}
-            </Link>
+            <Link to={`${url}/${albumId}`}>{albumName}</Link>
           </Title>
 
           <Actions>
@@ -49,7 +46,22 @@ const Details = styled(motion.div)`
 `
 
 const Cover = styled(motion.div)`
+  position: relative;
   height: 200px;
+
+  &::after {
+    content: '';
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background: linear-gradient(var(--brand-color), transparent);
+    transform-origin: top left;
+    transform: translateX(-50%) translateY(-50%);
+    animation: pulse-ring 1.25s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+    border-radius: 50%;
+  }
 
   img {
     height: 200px;
