@@ -10,6 +10,7 @@ export function Albums({ albums }) {
       {albums.map((album) => (
         <Album
           key={album.id}
+          albumId={album.id}
           albumName={album.name}
           yearOfRelease={album.year}
           coverArt={album.cover}
