@@ -29,7 +29,7 @@ export function Header({ artistName, coverArt }) {
 }
 
 const Section = styled.section`
-  height: 240px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
